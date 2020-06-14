@@ -1,5 +1,6 @@
-﻿using System;
-using Autofac;
+﻿using Autofac;
+using ForgetMeNot.Services.Implementations;
+using ForgetMeNot.Services.Interfaces;
 
 namespace ForgetMeNot.Services
 {
@@ -7,7 +8,7 @@ namespace ForgetMeNot.Services
     {
         public static void ResolveServices(this ContainerBuilder builder)
         {
-            
+            builder.RegisterType<AuthService>().As<IAuthService>();
         }
     }
 }
