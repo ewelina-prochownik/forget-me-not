@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Autofac;
+using ForgetMeNot.Services;
 
 namespace ForgetMeNot
 {
@@ -14,9 +13,14 @@ namespace ForgetMeNot
         [STAThread]
         static void Main()
         {
+            var builder = new ContainerBuilder();
+            builder.ResolveServices();
+            builder.RegisterType<Form1>();
+            var container = builder.Build();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(container.Resolve<Form1>());
         }
     }
 }
