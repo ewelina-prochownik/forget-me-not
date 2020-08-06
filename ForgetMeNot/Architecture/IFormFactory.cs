@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace ForgetMeNot.Services.Interfaces
+namespace ForgetMeNot.Architecture
 {
     public interface IFormFactory
     {

@@ -1,5 +1,5 @@
-﻿using System.Data.Entity;
-using ForgetMeNot.DAL.Model;
+﻿using ForgetMeNot.DAL.Model;
+using Microsoft.EntityFrameworkCore;
 
 namespace ForgetMeNot.DAL
 {
@@ -7,5 +7,23 @@ namespace ForgetMeNot.DAL
     {
         public DbSet<Plant> Plants { get; set; }
         public DbSet<Chore> Chores { get; set; }
+
+        public EfCoreContext()
+        {
+            
+        }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            // Database.EnsureCreated();
+            
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-UP96HRP\SQLEXPRESS;Initial Catalog=ForgetMeNot;Integrated Security=true;");
+            base.OnConfiguring(optionsBuilder);
+        }
     }
 }

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Windows.Forms;
 using Autofac;
+using ForgetMeNot.Architecture;
 using ForgetMeNot.Services;
 using ForgetMeNot.Services.Implementations;
+using ForgetMeNot.Services.Interfaces;
 
 namespace ForgetMeNot
 {
@@ -17,6 +19,7 @@ namespace ForgetMeNot
             var builder = new ContainerBuilder();
             builder.ResolveServices();
             builder.RegisterType<LoginForm>();
+            builder.RegisterType<MainForm>();
             builder.RegisterType<AutofacFormFactory>().As<IFormFactory>();
             var container = builder.Build();
             FormFactory.Use(container.Resolve<IFormFactory>());
@@ -24,6 +27,7 @@ namespace ForgetMeNot
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(container.Resolve<LoginForm>());
+
         }
     }
 }

@@ -4,16 +4,21 @@
     <e p="C:\Ewelina\Studia\Semestr IV\Programowanie IV\ForgetMeNot" t="IncludeFlat">
       <e p="ForgetMeNot" t="IncludeRecursive">
         <e p="App.config" t="Include" />
-        <e p="AutofacFormFactory.cs" t="Include" />
+        <e p="Architecture" t="Include">
+          <e p="AutofacFormFactory.cs" t="Include" />
+          <e p="FormFactory.cs" t="Include" />
+          <e p="IFormFactory.cs" t="Include" />
+        </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="ForgetMeNot.csproj" t="IncludeRecursive" />
-        <e p="FormFactory.cs" t="Include" />
-        <e p="IFormFactory.cs" t="Include" />
-        <e p="LoginForm.cs" t="Include" />
-        <e p="LoginForm.Designer.cs" t="Include" />
-        <e p="LoginForm.resx" t="Include" />
-        <e p="MainForm.cs" t="Include" />
-        <e p="MainForm.Designer.cs" t="Include" />
+        <e p="Forms" t="Include">
+          <e p="LoginForm.cs" t="Include" />
+          <e p="LoginForm.Designer.cs" t="Include" />
+          <e p="LoginForm.resx" t="Include" />
+          <e p="MainForm.cs" t="Include" />
+          <e p="MainForm.Designer.cs" t="Include" />
+          <e p="MainForm.resx" t="Include" />
+        </e>
         <e p="obj" t="ExcludeRecursive" />
         <e p="packages.config" t="Include" />
         <e p="Program.cs" t="Include" />
@@ -27,8 +32,12 @@
       </e>
       <e p="ForgetMeNot.DAL" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
-        <e p="Class1.cs" t="Include" />
+        <e p="EfCoreContext.cs" t="Include" />
         <e p="ForgetMeNot.DAL.csproj" t="IncludeRecursive" />
+        <e p="Model" t="Include">
+          <e p="Chore.cs" t="Include" />
+          <e p="Plant.cs" t="Include" />
+        </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netstandard2.0" t="Include">
@@ -39,6 +48,9 @@
       </e>
       <e p="ForgetMeNot.Services" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
+        <e p="Dto" t="Include">
+          <e p="ChoreDto.cs" t="Include" />
+        </e>
         <e p="ForgetMeNot.Services.csproj" t="IncludeRecursive" />
         <e p="Implementations" t="Include">
           <e p="AuthService.cs" t="Include" />

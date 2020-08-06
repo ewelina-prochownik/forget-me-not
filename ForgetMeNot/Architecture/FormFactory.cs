@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 using ForgetMeNot.Services.Interfaces;
 
-namespace ForgetMeNot.Services.Implementations
+namespace ForgetMeNot.Architecture
 {
     public static class FormFactory
     {

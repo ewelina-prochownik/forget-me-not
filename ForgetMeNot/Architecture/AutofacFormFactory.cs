@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using Autofac;
+using ForgetMeNot.Architecture;
 using ForgetMeNot.Services.Interfaces;
 
 namespace ForgetMeNot.Services.Implementations
