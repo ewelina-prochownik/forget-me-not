@@ -1,4 +1,4 @@
-﻿using System.Threading.Tasks;
+﻿using ForgetMeNot.DAL.Model;
 using ForgetMeNot.Services.Interfaces;
 
 namespace ForgetMeNot.Services.Implementations
@@ -7,6 +7,11 @@ namespace ForgetMeNot.Services.Implementations
     {
         public bool Authorize(string name)
         {
+            var plant = new Plant
+            {
+                Name = "Storczyk"
+            };
+           
             var isEmpty = string.IsNullOrWhiteSpace(name);
             if (!isEmpty)
             {

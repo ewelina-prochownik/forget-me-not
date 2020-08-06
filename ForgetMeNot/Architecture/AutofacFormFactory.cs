@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Windows.Forms;
 using Autofac;
+using ForgetMeNot.Services.Interfaces;
 
-namespace ForgetMeNot
+namespace ForgetMeNot.Services.Implementations
 {
     public class AutofacFormFactory : IFormFactory
     {
@@ -20,6 +21,7 @@ namespace ForgetMeNot
 
             var form = (Form) scope.Resolve(formType);
 
+            //form.disposed.subscrfibe()
             form.Disposed += (s, e) =>
             {
                 // finish the scope when the form is disposed (closed)

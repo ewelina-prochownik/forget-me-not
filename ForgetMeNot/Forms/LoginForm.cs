@@ -7,9 +7,11 @@ namespace ForgetMeNot
     public partial class LoginForm : Form
     {
         private readonly IAuthService _authService;
-        public LoginForm(IAuthService authService)
+        private readonly IFormFactory _formFactory;
+        public LoginForm(IAuthService authService, IFormFactory formFactory)
         {
             _authService = authService;
+            _formFactory = formFactory;
             InitializeComponent();
         }
 
@@ -18,6 +20,10 @@ namespace ForgetMeNot
             var isAuthorized = _authService.Authorize(txbUserName.Text);
             if (isAuthorized)
             {
+                var mainForm = _formFactory.CreateForm(typeof(MainForm));
+                mainForm.Show();
+                mainForm.Closed += (s, args) => this.Close();
+                this.Hide();
             }
 
         }
