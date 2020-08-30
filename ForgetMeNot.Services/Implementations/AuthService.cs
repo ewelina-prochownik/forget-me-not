@@ -12,28 +12,27 @@ namespace ForgetMeNot.Services.Implementations
         public AuthService(EfCoreContext context)
         {
             _context = context;
-            _context.Database.EnsureCreated();
         }
         public bool Authorize(string name)
         {
-            var plant = new Plant
-            {
-                Name = "Storczyk"
-            };
-
-            try
-            {
-                using (var con = _context)
-                {
-                    con.Plants.Add(plant);
-                    con.SaveChanges();
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
+            // var plant = new Plant
+            // {
+            //     Name = "Storczyk"
+            // };
+            //
+            // try
+            // {
+            //     using (var con = _context)
+            //     {
+            //         con.Plants.Add(plant);
+            //         con.SaveChanges();
+            //     }
+            // }
+            // catch (Exception e)
+            // {
+            //     Console.WriteLine(e);
+            //     throw;
+            // }
            
             var isEmpty = string.IsNullOrWhiteSpace(name);
             if (!isEmpty)

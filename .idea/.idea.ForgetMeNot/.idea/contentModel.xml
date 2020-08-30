@@ -36,6 +36,7 @@
         <e p="ForgetMeNot.DAL.csproj" t="IncludeRecursive" />
         <e p="Model" t="Include">
           <e p="Chore.cs" t="Include" />
+          <e p="CompletedChore.cs" t="Include" />
           <e p="Plant.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
@@ -54,9 +55,11 @@
         <e p="ForgetMeNot.Services.csproj" t="IncludeRecursive" />
         <e p="Implementations" t="Include">
           <e p="AuthService.cs" t="Include" />
+          <e p="ChoreService.cs" t="Include" />
         </e>
         <e p="Interfaces" t="Include">
           <e p="IAuthService.cs" t="Include" />
+          <e p="IChoreService.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">

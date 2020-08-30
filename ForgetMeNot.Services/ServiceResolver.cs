@@ -9,13 +9,14 @@ namespace ForgetMeNot.Services
     {
         public static void ResolveServices(this ContainerBuilder builder)
         {
-            
             builder
                 .RegisterType<EfCoreContext>()
                 .As<EfCoreContext>()
                 .InstancePerLifetimeScope();
             builder.RegisterType<AuthService>().As<IAuthService>()
-                .InstancePerLifetimeScope();
+                .SingleInstance();
+            builder.RegisterType<ChoreService>().As<IChoreService>()
+                .InstancePerDependency();
         }
     }
 }

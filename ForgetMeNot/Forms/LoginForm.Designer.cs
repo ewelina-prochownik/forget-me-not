@@ -36,10 +36,10 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(299, 196);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(2);
+            this.btnLogin.Location = new System.Drawing.Point(399, 241);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(81, 29);
+            this.btnLogin.Size = new System.Drawing.Size(108, 36);
             this.btnLogin.TabIndex = 1;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
@@ -47,35 +47,34 @@
             // 
             // txbUserName
             // 
-            this.txbUserName.Location = new System.Drawing.Point(112, 100);
-            this.txbUserName.Margin = new System.Windows.Forms.Padding(2);
+            this.txbUserName.Location = new System.Drawing.Point(149, 123);
+            this.txbUserName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txbUserName.Name = "txbUserName";
-            this.txbUserName.Size = new System.Drawing.Size(169, 20);
+            this.txbUserName.Size = new System.Drawing.Size(224, 22);
             this.txbUserName.TabIndex = 2;
             // 
             // lblEnterName
             // 
-            this.lblEnterName.Location = new System.Drawing.Point(0, 52);
-            this.lblEnterName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblEnterName.Location = new System.Drawing.Point(0, 64);
             this.lblEnterName.Name = "lblEnterName";
-            this.lblEnterName.Size = new System.Drawing.Size(388, 46);
+            this.lblEnterName.Size = new System.Drawing.Size(517, 57);
             this.lblEnterName.TabIndex = 3;
             this.lblEnterName.Text = "Please enter your name\r\n";
             this.lblEnterName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LoginForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(389, 245);
+            this.ClientSize = new System.Drawing.Size(519, 302);
             this.Controls.Add(this.lblEnterName);
             this.Controls.Add(this.txbUserName);
             this.Controls.Add(this.btnLogin);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(407, 292);
+            this.MaximumSize = new System.Drawing.Size(537, 349);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(407, 292);
+            this.MinimumSize = new System.Drawing.Size(537, 349);
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginForm";

@@ -4,7 +4,7 @@ namespace ForgetMeNot.Services.Dto
 {
     public class ChoreDto
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public string Title { get; set; }
         public DateTime CreatedAt { get; set; }
         public int IntervalInDays { get; set; }
