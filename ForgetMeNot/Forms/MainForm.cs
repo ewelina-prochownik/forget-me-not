@@ -46,10 +46,6 @@ namespace ForgetMeNot
             }
         }
 
-        private void clbChores_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-
         private void clbChores_ItemCheck(object sender, ItemCheckEventArgs e)
         {
             var selectedItem = sender.GetType().GetProperty("SelectedItem")?.GetValue(sender, null) as ChoreDto;
@@ -72,6 +68,16 @@ namespace ForgetMeNot
             foreach (var chore in clbChores.Items)
             {
             }
+        }
+
+        private void btnNewPlant_Click_1(object sender, EventArgs e)
+        {
+            var mainForm = _formFactory.CreateForm(typeof(AddPlantForm));
+            mainForm.Show();
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
         }
     }
 }

@@ -191,6 +191,9 @@
         </Compile>
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
+        <EmbeddedResource Include="Forms\AddPlantForm.resx">
+          <DependentUpon>AddPlantForm.cs</DependentUpon>
+        </EmbeddedResource>
         <EmbeddedResource Include="Forms\LoginForm.resx">
           <DependentUpon>LoginForm.cs</DependentUpon>
         </EmbeddedResource>

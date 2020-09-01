@@ -31,134 +31,157 @@ namespace ForgetMeNot
         /// </summary>
         private void InitializeComponent()
         {
-            this.menu = new System.Windows.Forms.MenuStrip();
+            this.tabMenu = new System.Windows.Forms.TabControl();
+            this.tabHomePage = new System.Windows.Forms.TabPage();
+            this.pbFlower = new System.Windows.Forms.PictureBox();
             this.clbChores = new System.Windows.Forms.CheckedListBox();
             this.lblYourName = new System.Windows.Forms.Label();
-            this.lblTodayTasks = new System.Windows.Forms.Label();
-            this.pbFlower = new System.Windows.Forms.PictureBox();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnSave = new System.Windows.Forms.Button();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.btnNewPlant = new System.Windows.Forms.Button();
+            this.lblTodayTasks = new System.Windows.Forms.Label();
+            this.tabLibrary = new System.Windows.Forms.TabPage();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.tabMenu.SuspendLayout();
+            this.tabHomePage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize) (this.pbFlower)).BeginInit();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.tabLibrary.SuspendLayout();
             this.SuspendLayout();
             // 
-            // menu
+            // tabMenu
             // 
-            this.menu.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menu.Location = new System.Drawing.Point(0, 0);
-            this.menu.Name = "menu";
-            this.menu.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menu.Size = new System.Drawing.Size(800, 24);
-            this.menu.TabIndex = 0;
-            this.menu.Text = "menuStrip1";
+            this.tabMenu.Controls.Add(this.tabHomePage);
+            this.tabMenu.Controls.Add(this.tabLibrary);
+            this.tabMenu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabMenu.Location = new System.Drawing.Point(0, 0);
+            this.tabMenu.Name = "tabMenu";
+            this.tabMenu.SelectedIndex = 0;
+            this.tabMenu.Size = new System.Drawing.Size(800, 666);
+            this.tabMenu.TabIndex = 15;
+            // 
+            // tabHomePage
+            // 
+            this.tabHomePage.Controls.Add(this.pbFlower);
+            this.tabHomePage.Controls.Add(this.clbChores);
+            this.tabHomePage.Controls.Add(this.lblYourName);
+            this.tabHomePage.Controls.Add(this.btnSave);
+            this.tabHomePage.Controls.Add(this.btnNewPlant);
+            this.tabHomePage.Controls.Add(this.lblTodayTasks);
+            this.tabHomePage.Location = new System.Drawing.Point(4, 25);
+            this.tabHomePage.Name = "tabHomePage";
+            this.tabHomePage.Padding = new System.Windows.Forms.Padding(3);
+            this.tabHomePage.Size = new System.Drawing.Size(792, 637);
+            this.tabHomePage.TabIndex = 0;
+            this.tabHomePage.Text = "Home Page";
+            this.tabHomePage.UseVisualStyleBackColor = true;
+            // 
+            // pbFlower
+            // 
+            this.pbFlower.Location = new System.Drawing.Point(401, 125);
+            this.pbFlower.Margin = new System.Windows.Forms.Padding(4);
+            this.pbFlower.Name = "pbFlower";
+            this.pbFlower.Size = new System.Drawing.Size(392, 272);
+            this.pbFlower.TabIndex = 17;
+            this.pbFlower.TabStop = false;
             // 
             // clbChores
             // 
-            this.clbChores.Dock = System.Windows.Forms.DockStyle.Top;
             this.clbChores.FormattingEnabled = true;
-            this.clbChores.Location = new System.Drawing.Point(3, 102);
+            this.clbChores.Location = new System.Drawing.Point(9, 125);
             this.clbChores.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.clbChores.Name = "clbChores";
-            this.clbChores.Size = new System.Drawing.Size(394, 276);
-            this.clbChores.TabIndex = 2;
+            this.clbChores.Size = new System.Drawing.Size(385, 463);
+            this.clbChores.TabIndex = 14;
             this.clbChores.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.clbChores_ItemCheck);
-            this.clbChores.SelectedIndexChanged += new System.EventHandler(this.clbChores_SelectedIndexChanged);
             // 
             // lblYourName
             // 
-            this.lblYourName.Location = new System.Drawing.Point(403, 0);
+            this.lblYourName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (238)));
+            this.lblYourName.Location = new System.Drawing.Point(0, 11);
             this.lblYourName.Name = "lblYourName";
-            this.lblYourName.Size = new System.Drawing.Size(394, 49);
-            this.lblYourName.TabIndex = 3;
+            this.lblYourName.Size = new System.Drawing.Size(793, 49);
+            this.lblYourName.TabIndex = 15;
+            this.lblYourName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(9, 598);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(167, 27);
+            this.btnSave.TabIndex = 18;
+            this.btnSave.Text = "Save completed tasks";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnNewPlant
+            // 
+            this.btnNewPlant.Location = new System.Drawing.Point(261, 598);
+            this.btnNewPlant.Name = "btnNewPlant";
+            this.btnNewPlant.Size = new System.Drawing.Size(133, 27);
+            this.btnNewPlant.TabIndex = 19;
+            this.btnNewPlant.Text = "Add new plant";
+            this.btnNewPlant.UseVisualStyleBackColor = true;
+            this.btnNewPlant.Click += new System.EventHandler(this.btnNewPlant_Click_1);
             // 
             // lblTodayTasks
             // 
             this.lblTodayTasks.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (238)));
-            this.lblTodayTasks.Location = new System.Drawing.Point(3, 0);
+            this.lblTodayTasks.Location = new System.Drawing.Point(0, 60);
             this.lblTodayTasks.Name = "lblTodayTasks";
-            this.lblTodayTasks.Size = new System.Drawing.Size(394, 50);
-            this.lblTodayTasks.TabIndex = 4;
+            this.lblTodayTasks.Size = new System.Drawing.Size(793, 50);
+            this.lblTodayTasks.TabIndex = 16;
             this.lblTodayTasks.Text = "Tasks for today";
+            this.lblTodayTasks.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pbFlower
+            // tabLibrary
             // 
-            this.pbFlower.Location = new System.Drawing.Point(404, 104);
-            this.pbFlower.Margin = new System.Windows.Forms.Padding(4);
-            this.pbFlower.Name = "pbFlower";
-            this.pbFlower.Size = new System.Drawing.Size(289, 245);
-            this.pbFlower.TabIndex = 5;
-            this.pbFlower.TabStop = false;
+            this.tabLibrary.Controls.Add(this.listBox1);
+            this.tabLibrary.Location = new System.Drawing.Point(4, 25);
+            this.tabLibrary.Name = "tabLibrary";
+            this.tabLibrary.Padding = new System.Windows.Forms.Padding(3);
+            this.tabLibrary.Size = new System.Drawing.Size(792, 637);
+            this.tabLibrary.TabIndex = 1;
+            this.tabLibrary.Text = "Library";
+            this.tabLibrary.UseVisualStyleBackColor = true;
             // 
-            // tableLayoutPanel1
+            // listBox1
             // 
-            this.tableLayoutPanel1.BackColor = System.Drawing.SystemColors.Control;
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.pbFlower, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.clbChores, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.lblTodayTasks, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.lblYourName, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.btnSave, 0, 2);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 24);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 4;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 13F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 426);
-            this.tableLayoutPanel1.TabIndex = 6;
-            // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(3, 383);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(93, 27);
-            this.btnSave.TabIndex = 6;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Location = new System.Drawing.Point(0, 24);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
-            this.menuStrip1.TabIndex = 7;
-            this.menuStrip1.Text = "menuStrip1";
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 16;
+            this.listBox1.Location = new System.Drawing.Point(6, 6);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(398, 340);
+            this.listBox1.TabIndex = 0;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.tableLayoutPanel1);
-            this.Controls.Add(this.menu);
-            this.MainMenuStrip = this.menu;
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(800, 666);
+            this.Controls.Add(this.tabMenu);
+            this.Location = new System.Drawing.Point(19, 19);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MainForm";
+            this.tabMenu.ResumeLayout(false);
+            this.tabHomePage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize) (this.pbFlower)).EndInit();
-            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tabLibrary.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
         }
 
+        private System.Windows.Forms.Button btnNewPlant;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.CheckedListBox clbChores;
         private System.Windows.Forms.Label lblTodayTasks;
         private System.Windows.Forms.Label lblYourName;
-        private System.Windows.Forms.MenuStrip menu;
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.PictureBox pbFlower;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TabPage tabHomePage;
+        private System.Windows.Forms.TabPage tabLibrary;
+        private System.Windows.Forms.TabControl tabMenu;
 
         #endregion
     }

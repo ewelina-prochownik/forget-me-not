@@ -73,7 +73,6 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(537, 349);
-            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(537, 349);
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
