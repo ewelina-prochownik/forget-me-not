@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ForgetMeNot.DAL.Model
 {
@@ -12,5 +13,6 @@ namespace ForgetMeNot.DAL.Model
         //relationships
         public int PlantId { get; set; }
         public virtual Plant Plant { get; set; }
+        public virtual IEnumerable<CompletedChore> CompletedChores { get; set; }
     }
 }

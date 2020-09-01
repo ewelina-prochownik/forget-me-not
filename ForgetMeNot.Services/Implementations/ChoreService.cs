@@ -20,13 +20,13 @@ namespace ForgetMeNot.Services.Implementations
             _context = context;
         }
 
-        public async Task<ChoreDto> GetById(int id)
+        public ChoreDto GetById(int id)
         {
             using (var ctx = _context)
             {
-                var chore = await ctx.Chores.FirstOrDefaultAsync(c => c.Id == id);
+                var chore = ctx.Chores.FirstOrDefault(c => c.Id == id);
                 var isChoreCompleted =
-                    await ctx.CompletedChores.LastOrDefaultAsync(cc =>
+                    ctx.CompletedChores.AsEnumerable().LastOrDefault(cc =>
                         cc.ChoreId == id && cc.CreatedAt.Date == DateTime.Today);
                 return new ChoreDto
                 {
@@ -40,82 +40,87 @@ namespace ForgetMeNot.Services.Implementations
             }
         }
 
-        public async Task<IEnumerable<ChoreDto>> GetAll()
+        public IEnumerable<ChoreDto> GetAll()
         {
-            using (var ctx = _context)
-            {
-                var chores = await Task.WhenAll(ctx.Chores.Where(c =>
-                        (int) DateTime.Now.Subtract(c.CreatedAt).TotalDays % c.IntervalInDays == 0
-                    )
-                    .AsEnumerable().Select(async chore =>
+            var date = DateTime.Today;
+            var chores = _context.Chores.Include(x => x.CompletedChores)
+                    .AsNoTracking().AsEnumerable()
+                    .Where(c =>
+                        (int) DateTime.UtcNow.Subtract(c.CreatedAt).TotalDays % c.IntervalInDays == 0)
+                ;
+
+            var result = chores
+                .Select(chore =>
+                {
+                    var completedChore = chore.CompletedChores.AsEnumerable().Any(cc =>
+                        cc.ChoreId == chore.Id && cc.CreatedAt.Date == date);
+                    return new ChoreDto
                     {
-                        var isChoreCompleted =
-                            await ctx.CompletedChores.LastOrDefaultAsync(cc =>
-                                cc.ChoreId == chore.Id && cc.CreatedAt.Date == DateTime.Today);
-                        return new ChoreDto
-                        {
-                            Id = chore.Id,
-                            Title = chore.Title,
-                            CreatedAt = chore.CreatedAt,
-                            IsCompleted = isChoreCompleted != null,
-                            PlantId = chore.PlantId,
-                            IntervalInDays = chore.IntervalInDays
-                        };
-                    }));
-                return chores;
-            }
+                        Id = chore.Id,
+                        Title = chore.Title,
+                        CreatedAt = chore.CreatedAt,
+                        IsCompleted = completedChore,
+                        PlantId = chore.PlantId,
+                        IntervalInDays = chore.IntervalInDays
+                    };
+                }).ToList();
+            return result;
         }
 
-        public async Task<bool> Save(ChoreDto dto)
+
+        public bool Save(ChoreDto dto)
         {
-            using (var ctx = _context)
+            var entity = new Chore
             {
-                var entity = new Chore
-                {
-                    Title = dto.Title,
-                    CreatedAt = dto.CreatedAt,
-                    PlantId = dto.PlantId,
-                    IntervalInDays = dto.IntervalInDays
-                };
-                if (dto.Id != null)
-                {
-                    entity.Id = (int) dto.Id;
-                }
+                Title = dto.Title,
+                CreatedAt = dto.CreatedAt,
+                PlantId = dto.PlantId,
+                IntervalInDays = dto.IntervalInDays
+            };
+            if (dto.Id != null)
+            {
+                entity.Id = (int) dto.Id;
 
-                if (dto.IsCompleted && dto.Id != null)
+                var completedChore = _context.CompletedChores.AsEnumerable()?.LastOrDefault(cc =>
+                    cc.CreatedAt.Date == DateTime.Today && cc.ChoreId == dto.Id);
+
+                if (dto.IsCompleted && completedChore == null)
                 {
-                    var exist = await ctx.CompletedChores.AnyAsync(cc =>
-                        cc.CreatedAt.Date == DateTime.Today && cc.ChoreId == dto.Id);
-                    if (!exist)
+                    _context.CompletedChores?.Add(new CompletedChore
                     {
-                        await ctx.CompletedChores.AddAsync(new CompletedChore
-                        {
-                            Title = dto.Title,
-                            ChoreId = (int) dto.Id,
-                            CreatedAt = DateTime.Now,
-                            PlantId = dto.PlantId
-                        });
-                    }
+                        Title = dto.Title,
+                        ChoreId = (int) dto.Id,
+                        CreatedAt = DateTime.Now,
+                        PlantId = dto.PlantId
+                    });
+                }
+                else if (!dto.IsCompleted && completedChore != null)
+                {
+                    _context.CompletedChores?.Remove(completedChore);
                 }
 
-                ctx.Entry(entity).State = dto.Id != null ? EntityState.Modified : EntityState.Added;
-                var result = await ctx.SaveChangesAsync();
-                return result > 0;
+                _context.Entry<Chore>(entity).State = EntityState.Modified;
+                _context.Entry<Chore>(entity).State = EntityState.Detached;
             }
+            else
+            {
+                _context.Chores.Add(entity);
+            }
+
+            var result = _context.SaveChanges();
+            return result > 0;
         }
 
-        public async Task<bool> Remove(int id)
+        public bool Remove(int id)
         {
-            using (var ctx = _context)
+            var entity = _context.Chores.FirstOrDefault(c => c.Id == id);
+            if (entity != null)
             {
-                var entity = await ctx.Chores.FirstOrDefaultAsync(c => c.Id == id);
-                if (entity != null)
-                {
-                    ctx.Chores.Remove(entity);
-                }
-                var result = await ctx.SaveChangesAsync();
-                return result > 0;
+                _context.Chores.Remove(entity);
             }
+
+            var result = _context.SaveChanges();
+            return result > 0;
         }
     }
 }

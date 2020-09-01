@@ -17,6 +17,8 @@ namespace ForgetMeNot.Services
                 .SingleInstance();
             builder.RegisterType<ChoreService>().As<IChoreService>()
                 .InstancePerDependency();
+            builder.RegisterType<PlantService>().As<IPlantService>()
+                .InstancePerDependency();
         }
     }
 }

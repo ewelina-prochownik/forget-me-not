@@ -20,6 +20,8 @@ namespace ForgetMeNot
             builder.ResolveServices();
             builder.RegisterType<LoginForm>();
             builder.RegisterType<MainForm>();
+            builder.RegisterType<AddPlantForm>();
+            
             builder.RegisterType<AutofacFormFactory>().As<IFormFactory>();
             var container = builder.Build();
             FormFactory.Use(container.Resolve<IFormFactory>());

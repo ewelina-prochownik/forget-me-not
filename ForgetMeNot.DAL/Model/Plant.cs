@@ -18,5 +18,6 @@ namespace ForgetMeNot.DAL.Model
         
         //relationships
         public virtual ICollection<Chore> Chores { get; set; }
+        public virtual ICollection<CompletedChore> CompletedChores { get; set; }
     }
 }

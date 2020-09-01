@@ -8,9 +8,9 @@ namespace ForgetMeNot.Services.Interfaces
 {
     public interface IChoreService
     {
-        Task<ChoreDto> GetById(int id);
-        Task<IEnumerable<ChoreDto>> GetAll();
-        Task<bool> Save(ChoreDto dto);
-        Task<bool> Remove(int id);
+        ChoreDto GetById(int id);
+        IEnumerable<ChoreDto> GetAll();
+        bool Save(ChoreDto dto);
+        bool Remove(int id);
     }
 }

@@ -171,6 +171,12 @@
         <Compile Include="Architecture\AutofacFormFactory.cs" />
         <Compile Include="Architecture\FormFactory.cs" />
         <Compile Include="Architecture\IFormFactory.cs" />
+        <Compile Include="Forms\AddPlantForm.cs">
+          <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="Forms\AddPlantForm.Designer.cs">
+          <DependentUpon>AddPlantForm.cs</DependentUpon>
+        </Compile>
         <Compile Include="Forms\LoginForm.cs">
           <SubType>Form</SubType>
         </Compile>
@@ -215,6 +221,10 @@
         <None Include="App.config" />
     </ItemGroup>
     <ItemGroup>
+      <ProjectReference Include="..\ForgetMeNot.DAL\ForgetMeNot.DAL.csproj">
+        <Project>{827e0e16-9986-4521-9fd5-a482eb85390f}</Project>
+        <Name>ForgetMeNot.DAL</Name>
+      </ProjectReference>
       <ProjectReference Include="..\ForgetMeNot.Services\ForgetMeNot.Services.csproj">
         <Project>{978896ea-b0d4-44ef-9b7b-292082370188}</Project>
         <Name>ForgetMeNot.Services</Name>
